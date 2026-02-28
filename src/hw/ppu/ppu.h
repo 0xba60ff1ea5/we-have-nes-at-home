@@ -9,8 +9,6 @@
  * 
  */
 
-#pragma once
-
 typedef struct nes_ppu nes_ppu_t;
 
 

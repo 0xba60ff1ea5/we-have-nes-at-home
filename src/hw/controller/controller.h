@@ -9,8 +9,6 @@
  * 
  */
 
-#pragma once
-
 typedef struct nes_controller nes_controller_t;
 
 

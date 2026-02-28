@@ -9,8 +9,6 @@
  * 
  */
 
-#pragma once
-
 typedef struct nes_cpu nes_cpu_t;
 
 
