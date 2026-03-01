@@ -8,7 +8,7 @@ F1EA5
 
 ## Usage
 To build the software image, you can either...
-    1. Run `make nes` from the top-level directory
+    1. Run `make all` from the top-level directory
     2. If running from VSCode, Select Terminal -> Run Task... -> Build
 
 ## Useful Links
@@ -21,9 +21,9 @@ To build the software image, you can either...
 - Fix typos in `README.md` from PR 1
 - Added 'Usage' and 'Useful Links' sections in `README.md`
 - Created `Makefile`
-    - `make nes` and `make clean` options
+    - Generated from Claude
 - Added VSCode tasks in `.vscode/tasks.json`
-    - `build` and `clean` tasks
+    - `Build` and `Clean` tasks
 
 ### Pull Request 1
 - Skeleton `.c` and `.h` device file structure

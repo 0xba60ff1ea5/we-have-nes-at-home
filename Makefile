@@ -4,15 +4,9 @@
 # NES Emulator Makefile
 # ==============================================================================
 #
-# Build output goes to $(ROOT)/build/
-# Sources live under $(ROOT)/src/
-#
 # Targets:
 #   make              Build the main emulator binary (default)
-#   make test         Build the nestest CPU validation binary
 #   make clean        Remove the build directory
-#   make run ROM=x    Build and run the emulator with a ROM
-#   make run_test     Build and run nestest, diff against nestest.log
 #
 # Dependencies (install via your package manager):
 #   glib-2.0          pkg-config --libs glib-2.0
@@ -59,31 +53,16 @@ SRCS        := $(SRC_DIR)/main.c \
                $(HW_DIR)/controller/controller.c
 
 # ------------------------------------------------------------------------------
-# Sources — nestest harness
-# ------------------------------------------------------------------------------
-
-TEST_SRCS   := $(SRC_DIR)/test_nestest.c \
-               $(HW_DIR)/nes.c \
-               $(HW_DIR)/bus/bus.c \
-               $(HW_DIR)/cpu/cpu.c \
-               $(HW_DIR)/ppu/ppu.c \
-               $(HW_DIR)/apu/apu.c \
-               $(HW_DIR)/rom/rom.c \
-               $(HW_DIR)/controller/controller.c
-
-# ------------------------------------------------------------------------------
 # Object files (mirrors source tree under build/)
 # ------------------------------------------------------------------------------
 
 OBJS        := $(patsubst $(SRC_DIR)/%.c,$(BUILD_DIR)/%.o,$(SRCS))
-TEST_OBJS   := $(patsubst $(SRC_DIR)/%.c,$(BUILD_DIR)/%.o,$(TEST_SRCS))
 
 # ------------------------------------------------------------------------------
 # Binary names
 # ------------------------------------------------------------------------------
 
 TARGET      := $(BUILD_DIR)/nes
-TEST_TARGET := $(BUILD_DIR)/nestest
 
 # ------------------------------------------------------------------------------
 # Default target
@@ -100,10 +79,6 @@ $(TARGET): $(OBJS)
 	@echo "[LD]  $@"
 	@$(CC) $(OBJS) -o $@ $(LDFLAGS)
 
-$(TEST_TARGET): $(TEST_OBJS)
-	@echo "[LD]  $@"
-	@$(CC) $(TEST_OBJS) -o $@ $(LDFLAGS)
-
 # ------------------------------------------------------------------------------
 # Compile — generic rule for all .c files under src/
 #
@@ -117,30 +92,6 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(@D)
 	@echo "[CC]  $<"
 	@$(CC) $(CFLAGS) -I$(SRC_DIR) -c $< -o $@
-
-# ------------------------------------------------------------------------------
-# Convenience targets
-# ------------------------------------------------------------------------------
-
-.PHONY: test
-test: $(TEST_TARGET)
-
-.PHONY: run
-run: $(TARGET)
-ifndef ROM
-	$(error ROM is not set. Usage: make run ROM=path/to/game.nes)
-endif
-	@$(TARGET) $(ROM)
-
-# Runs nestest and diffs against nestest.log (must be in the project root)
-.PHONY: run_test
-run_test: $(TEST_TARGET)
-	@echo "[RUN] nestest"
-	@$(TEST_TARGET) > $(BUILD_DIR)/nestest_out.log
-	@echo "[DIFF] comparing against nestest.log"
-	@diff $(BUILD_DIR)/nestest_out.log $(ROOT)/nestest.log \
-		&& echo "PASS — output matches nestest.log" \
-		|| echo "FAIL — see diff above"
 
 .PHONY: clean
 clean:
