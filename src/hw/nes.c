@@ -10,6 +10,7 @@
  */
 
 #include <glib.h>
+#include <stdint.h>
 
 #include "cpu/cpu.h"
 #include "apu/apu.h"
@@ -23,7 +24,7 @@ typedef struct nes
     nes_apu_t *apu;
     nes_ppu_t *ppu;
     nes_rom_t *rom;
-    nes_controller_t *nes_controller;
+    nes_controller_t *controller;
 } nes_t;
 
 

@@ -10,6 +10,7 @@
  */
 
 #include <glib.h>
+#include <stdint.h>
 
 #include "rom.h"
  
