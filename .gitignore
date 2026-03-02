@@ -1,0 +1,13 @@
+# Entire directories
+build/
+roms/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C
+*.o
+*.so
+*.d

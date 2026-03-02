@@ -9,7 +9,7 @@
                 "reveal": "always",
                 "panel": "new"
             },
-            "problemMatcher": "$make",
+            "problemMatcher": "$gcc",
         },
         {
             "label": "Clean",
@@ -19,7 +19,17 @@
                 "reveal": "always",
                 "panel": "new"
             },
-            "problemMatcher": "$make",
+            "problemMatcher": "$gcc",
+        },
+        {
+            "label": "Run",
+            "type": "shell",
+            "command": "./build/nes",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": "$gcc",
         },
     ],
 }
