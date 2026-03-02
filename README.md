@@ -4,17 +4,17 @@ My own NES emulator. Probably won't be very good, LOL. I'm following a few onlin
 Thank you all for using my software!
 
 Much love,\
-F1EA5\
+F1EA5
 
 https://github.com/0xba60ff1ea5
 
 ## Usage
-To build the software image, you can either...
-    1. Run `make all` from the top-level directory
+To build the software image, you can either...\
+    1. Run `make all` from the top-level directory\
     2. If running from VSCode, Select Terminal -> Run Task... -> Build
 
-To run the software image, you can either...
-    1. Run the `nes` binary directly in the `build` directory
+To run the software image, you can either...\
+    1. Run the `nes` binary directly in the `build` directory\
     2. If running from VSCode, Select Terminal -> Run Task... -> Run
 
 ## Useful Links
