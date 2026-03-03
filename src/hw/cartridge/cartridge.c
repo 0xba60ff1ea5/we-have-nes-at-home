@@ -1,5 +1,5 @@
 /**
- * @file rom.c
+ * @file cartridge.c
  * 
  * @author 0xba60ff1ea5 (ba60ff1ea5@gmail.com)
  * 
@@ -13,13 +13,13 @@
 #include <glib.h>
 #include <stdint.h>
 
-#include "rom.h"
+#include "cartridge.h"
  
-typedef struct nes_rom
+typedef struct nes_cartridge
 {
     // TODO: Figure out what to do here
     uint8_t dummy_regs;
-} nes_rom_t;
+} nes_cartridge_t;
 
 
 // ##################################################
@@ -30,17 +30,17 @@ typedef struct nes_rom
 // # Public Functions                               #
 // ##################################################
 
-// void nes_rom_reset(nes_rom_t *rom)
+// void nes_cartridge_reset(nes_cartridge_t *cartridge)
 // {
 //     // TODO: Figure out what to do here
 //     return;
 // }
 
-nes_rom_t *nes_rom_init(void)
+nes_cartridge_t *nes_cartridge_init(void)
 {
-    nes_rom_t *rom = g_malloc0(sizeof(nes_rom_t));
+    nes_cartridge_t *cartridge = g_malloc0(sizeof(nes_cartridge_t));
 
-    // nes_rom_reset(rom);
+    // nes_cartridge_reset(cartridge);
 
-    return rom;
+    return cartridge;
 }

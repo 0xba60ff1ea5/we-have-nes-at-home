@@ -44,8 +44,5 @@ void nes_apu_reset(nes_apu_t *apu)
 nes_apu_t *nes_apu_init(void)
 {
     nes_apu_t *apu = g_malloc0(sizeof(nes_apu_t));
-
-    nes_apu_reset(apu);
-
     return apu;
 }

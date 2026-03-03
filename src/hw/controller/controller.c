@@ -30,13 +30,7 @@ typedef struct nes_controller
 // # Public Functions                               #
 // ##################################################
 
-// void nes_controller_reset(nes_controller_t *controller)
-// {
-//     // TODO: Figure out what to do here
-//     return;
-// }
-
-nes_controller_t *nes_controller_init(void)
+nes_controller_t *nes_controller_init(uint8_t player)
 {
     nes_controller_t *controller = g_malloc0(sizeof(nes_controller_t));
 

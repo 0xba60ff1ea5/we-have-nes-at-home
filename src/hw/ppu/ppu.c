@@ -44,8 +44,5 @@ void nes_ppu_reset(nes_ppu_t *ppu)
 nes_ppu_t *nes_ppu_init(void)
 {
     nes_ppu_t *ppu = g_malloc0(sizeof(nes_ppu_t));
-
-    nes_ppu_reset(ppu);
-
     return ppu;
 }

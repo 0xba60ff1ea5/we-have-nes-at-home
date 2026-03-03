@@ -13,6 +13,4 @@
 typedef struct nes_controller nes_controller_t;
 
 
-// void nes_controller_reset(nes_controller_t *controller);
-
-nes_controller_t *nes_controller_init(void);
+nes_controller_t *nes_controller_init(uint8_t player);

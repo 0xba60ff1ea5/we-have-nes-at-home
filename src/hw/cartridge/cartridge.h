@@ -1,5 +1,5 @@
 /**
- * @file rom.h
+ * @file cartridge.h
  * 
  * @author 0xba60ff1ea5 (ba60ff1ea5@gmail.com)
  * 
@@ -10,9 +10,7 @@
  * @copyright Copyright (c) 2026
  */
 
-typedef struct nes_rom nes_rom_t;
+typedef struct nes_cartridge nes_cartridge_t;
 
 
-// void nes_rom_reset(nes_rom_t *rom);
-
-nes_rom_t *nes_rom_init(void);
+nes_cartridge_t *nes_cartridge_init(void);
