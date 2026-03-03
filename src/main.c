@@ -19,10 +19,6 @@ int main(int argc, char **argv)
 {
     nes_t *nes = nes_init();
 
-    // nes_cartridge_load();
-
-    // nes_reset();
-
     // for (;;)
     // {
     //     nes_step(nes);

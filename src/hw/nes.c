@@ -46,11 +46,11 @@ enum nes_memory_macros_e
     NES_MEM_CART_SIZE   = 0xBFE0,
     NES_MEM_CART_MASK   = 0xBFDF,
     NES_MEM_CART_OFFSET = 0x4020,
-}
+};
  
 typedef struct nes
 {
-    uint8_t ram[NES_BUS_RAM_SIZE];
+    uint8_t ram[NES_MEM_RAM_SIZE];
 
     nes_cpu_t *cpu;
     nes_apu_t *apu;
@@ -99,6 +99,8 @@ uint8_t nes_read(nes_t *nes, uint16_t addr)
 
         }
     }
+
+    return 0;
 }
 
 uint16_t nes_read16(nes_t *nes, uint16_t addr)
@@ -112,6 +114,7 @@ uint16_t nes_read16(nes_t *nes, uint16_t addr)
 void nes_write(nes_t *nes, uint16_t addr, uint16_t val)
 {
     // TODO: Figure out what to do here
+    return;
 }
 
 // void nes_step(nes_t *nes)
@@ -138,16 +141,16 @@ nes_t *nes_init(void)
 {
     nes_t *nes = g_malloc0(sizeof(nes_t));
 
-    nes->cpu = nes_cpu_init();
-    nes->apu = nes_apu_init();
-    nes->ppu = nes_ppu_init();
-    nes->cartridge = nes_cartridge_init();
+    nes->cpu = nes_cpu_init(nes);
+    nes->apu = nes_apu_init(nes);
+    nes->ppu = nes_ppu_init(nes);
+    nes->cartridge = nes_cartridge_init(nes);
     // Assuming 1-player games for now...
-    nes_controller_init(0);
-
-    nes_reset(nes);
+    nes_controller_init(nes);
 
     // nes_cartridge_load(nes->cartridge, argv[1]);
+
+    nes_reset(nes);
 
     return nes;
 }

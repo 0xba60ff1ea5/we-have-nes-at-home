@@ -14,11 +14,14 @@
 #include <stdint.h>
 
 #include "controller.h"
+#include "../nes.h"
  
 typedef struct nes_controller
 {
     // TODO: Figure out what to do here
     uint8_t dummy_regs;
+
+    nes_t *nes;
 } nes_controller_t;
 
 
@@ -30,11 +33,9 @@ typedef struct nes_controller
 // # Public Functions                               #
 // ##################################################
 
-nes_controller_t *nes_controller_init(uint8_t player)
+nes_controller_t *nes_controller_init(nes_t *nes)
 {
     nes_controller_t *controller = g_malloc0(sizeof(nes_controller_t));
-
-    // nes_controller_reset(controller);
-
+    controller->nes = nes;
     return controller;
 }

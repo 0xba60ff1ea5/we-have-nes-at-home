@@ -11,6 +11,7 @@
  */
 
 typedef struct nes_cartridge nes_cartridge_t;
+typedef struct nes nes_t;
 
 
-nes_cartridge_t *nes_cartridge_init(void);
+nes_cartridge_t *nes_cartridge_init(nes_t *nes);

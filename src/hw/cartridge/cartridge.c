@@ -14,11 +14,14 @@
 #include <stdint.h>
 
 #include "cartridge.h"
+#include "../nes.h"
  
 typedef struct nes_cartridge
 {
     // TODO: Figure out what to do here
     uint8_t dummy_regs;
+
+    nes_t *nes;
 } nes_cartridge_t;
 
 
@@ -36,11 +39,9 @@ typedef struct nes_cartridge
 //     return;
 // }
 
-nes_cartridge_t *nes_cartridge_init(void)
+nes_cartridge_t *nes_cartridge_init(nes_t *nes)
 {
     nes_cartridge_t *cartridge = g_malloc0(sizeof(nes_cartridge_t));
-
-    // nes_cartridge_reset(cartridge);
-
+    cartridge->nes = nes;
     return cartridge;
 }

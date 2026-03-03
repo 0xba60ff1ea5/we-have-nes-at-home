@@ -14,8 +14,9 @@
 #include <stdint.h>
 
 #include "cpu.h"
+#include "../nes.h"
 
-// Macros for the Processor Status register
+// Macros for the Processor Status register bits
 // https://www.nesdev.org/wiki/Status_flags
 #define NES_CPU_C_FLAG 0x01 // Carry
 #define NES_CPU_Z_FLAG 0x02 // Zero
@@ -35,6 +36,8 @@ typedef struct nes_cpu
     uint16_t pc; // Program Counter
     uint8_t s;   // Stack Pointer
     uint8_t p;   // Processor Status / Status Register
+
+    nes_t *nes;
 } nes_cpu_t;
 
 
@@ -62,11 +65,13 @@ void nes_cpu_reset(nes_cpu_t *cpu)
         --cpu->s;
     }
 
-    // Set pc to Reset Vector $FFFC
+    // Set program counter to reset vector
+    cpu->pc = nes_read16(cpu->nes, 0xFFFC);
 }
 
-nes_cpu_t *nes_cpu_init(void)
+nes_cpu_t *nes_cpu_init(nes_t *nes)
 {
     nes_cpu_t *cpu = g_malloc0(sizeof(nes_cpu_t));
+    cpu->nes = nes;
     return cpu;
 }

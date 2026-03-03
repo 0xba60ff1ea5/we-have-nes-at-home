@@ -11,6 +11,7 @@
  */
 
 typedef struct nes_controller nes_controller_t;
+typedef struct nes nes_t;
 
 
-nes_controller_t *nes_controller_init(uint8_t player);
+nes_controller_t *nes_controller_init(nes_t *nes);

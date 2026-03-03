@@ -11,10 +11,11 @@
  */
 
 typedef struct nes_cpu nes_cpu_t;
+typedef struct nes nes_t;
 
 
 // void nes_cpu_step(nes_cpu_t *cpu);
 
 void nes_cpu_reset(nes_cpu_t *cpu);
 
-nes_cpu_t *nes_cpu_init(void);
+nes_cpu_t *nes_cpu_init(nes_t *nes);

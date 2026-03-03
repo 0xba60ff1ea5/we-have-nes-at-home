@@ -14,11 +14,14 @@
 #include <stdint.h>
 
 #include "ppu.h"
+#include "../nes.h"
  
 typedef struct nes_ppu
 {
     // TODO: Figure out what to do here
     uint8_t dummy_regs;
+
+    nes_t *nes;
 } nes_ppu_t;
 
 
@@ -41,8 +44,9 @@ void nes_ppu_reset(nes_ppu_t *ppu)
     return;
 }
 
-nes_ppu_t *nes_ppu_init(void)
+nes_ppu_t *nes_ppu_init(nes_t *nes)
 {
     nes_ppu_t *ppu = g_malloc0(sizeof(nes_ppu_t));
+    ppu->nes = nes;
     return ppu;
 }
