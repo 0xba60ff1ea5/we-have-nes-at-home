@@ -30,6 +30,7 @@ To run the software image, you can either...\
 - Added CPU register variables
     - Currently unused
 - Renamed `rom` files, functions, and variables to `cartridge`
+- Added `nes_t *nes` device as parent to all hardware peripherals
 
 ### Pull Request 3
 - Added `Run` VSCode task
