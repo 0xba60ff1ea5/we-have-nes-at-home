@@ -49,7 +49,7 @@ SRCS        := $(SRC_DIR)/main.c \
                $(HW_DIR)/cpu/cpu.c \
                $(HW_DIR)/ppu/ppu.c \
                $(HW_DIR)/apu/apu.c \
-               $(HW_DIR)/rom/rom.c \
+               $(HW_DIR)/cartridge/cartridge.c \
                $(HW_DIR)/controller/controller.c
 
 # ------------------------------------------------------------------------------

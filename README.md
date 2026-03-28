@@ -25,6 +25,13 @@ To run the software image, you can either...\
 
 ## Change History
 
+### Pull Request 4
+- Created bus functions and macros in `nes.c`
+- Added CPU register variables
+    - Currently unused
+- Renamed `rom` files, functions, and variables to `cartridge`
+- Added `nes_t *nes` device as parent to all hardware peripherals
+
 ### Pull Request 3
 - Added `Run` VSCode task
 - Changed `tasks.json` `problemMatcher` from `$make` to `$gcc`

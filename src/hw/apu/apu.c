@@ -14,11 +14,14 @@
 #include <stdint.h>
 
 #include "apu.h"
+#include "../nes.h"
  
 typedef struct nes_apu
 {
     // TODO: Figure out what to do here
     uint8_t dummy_regs;
+
+    nes_t *nes;
 } nes_apu_t;
 
 
@@ -41,11 +44,9 @@ void nes_apu_reset(nes_apu_t *apu)
     return;
 }
 
-nes_apu_t *nes_apu_init(void)
+nes_apu_t *nes_apu_init(nes_t *nes)
 {
     nes_apu_t *apu = g_malloc0(sizeof(nes_apu_t));
-
-    nes_apu_reset(apu);
-
+    apu->nes = nes;
     return apu;
 }

@@ -11,10 +11,11 @@
  */
 
 typedef struct nes_apu nes_apu_t;
+typedef struct nes nes_t;
 
 
 // void nes_apu_step(nes_apu_t *apu);
 
 void nes_apu_reset(nes_apu_t *apu);
 
-nes_apu_t *nes_apu_init(void);
+nes_apu_t *nes_apu_init(nes_t *nes);

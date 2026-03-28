@@ -11,8 +11,7 @@
  */
 
 typedef struct nes_controller nes_controller_t;
+typedef struct nes nes_t;
 
 
-// void nes_controller_reset(nes_controller_t *controller);
-
-nes_controller_t *nes_controller_init(void);
+nes_controller_t *nes_controller_init(nes_t *nes);

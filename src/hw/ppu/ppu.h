@@ -11,10 +11,11 @@
  */
 
 typedef struct nes_ppu nes_ppu_t;
+typedef struct nes nes_t;
 
 
 // void nes_ppu_step(nes_ppu_t *ppu);
 
 void nes_ppu_reset(nes_ppu_t *ppu);
 
-nes_ppu_t *nes_ppu_init(void);
+nes_ppu_t *nes_ppu_init(nes_t *nes);
