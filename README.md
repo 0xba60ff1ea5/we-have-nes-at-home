@@ -25,6 +25,9 @@ To run the software image, you can either...\
 
 ## Change History
 
+### Pull Request 5
+- Added `roms/` directory
+
 ### Pull Request 4
 - Created bus functions and macros in `nes.c`
 - Added CPU register variables
